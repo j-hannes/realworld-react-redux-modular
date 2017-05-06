@@ -2,7 +2,7 @@
 
 > ### React-redux codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
 
-I am aware of the existing [React + Redux Real World Example App](https://github.com/gothinkster/react-redux-realworld-example-app) but for educational purposes, to use a handsome composition of libraries but most importantly to follow a modular architecture with encapsulated modules as described in [Jack Hsu's excellent blog post](https://jaysoo.ca/2016/02/28/organizing-redux-application).
+I am aware of the existing [React + Redux Real World Example App](https://github.com/gothinkster/react-redux-realworld-example-app) but for educational purposes, to use a handsome composition of libraries but most importantly to follow a modular architecture with encapsulated modules as described in [Jack Hsu's excellent blog post](https://jaysoo.ca/2016/02/28/organizing-redux-application) I still want to create this application here myself.
 
 ---
 
