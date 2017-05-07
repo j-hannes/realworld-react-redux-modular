@@ -1,9 +1,10 @@
+import ImmutablePropTypes from 'react-immutable-proptypes'
 import PropTypes from 'prop-types'
 
-export const Article = PropTypes.shape({
+export const Article = ImmutablePropTypes.recordOf({
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  author: PropTypes.shape({
+  author: ImmutablePropTypes.recordOf({
     image: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
   }).isRequired,
@@ -11,4 +12,4 @@ export const Article = PropTypes.shape({
   favoritesCount: PropTypes.number.isRequired,
 })
 
-export const Articles = PropTypes.arrayOf(Article)
+export const Articles = ImmutablePropTypes.listOf(Article)
