@@ -13,23 +13,23 @@ I am aware of the existing [React + Redux Real World Example App](https://github
 Based on [create-react-app](https://github.com/facebookincubator/create-react-app) (no-escape yet).
 
 It uses the following library stack:
-  * [React](https://facebook.github.io/react)
-  * [Redux](http://redux.js.org)
-  * [Immutable](https://facebook.github.io/immutable-js)
-  * [Reselect](https://github.com/reactjs/reselect)
-  * [Redux-Saga](https://github.com/redux-saga/redux-saga)
-  * [Styled components](https://styled-components.com)
-  * [Prettier](https://github.com/prettier/prettier)
-  * [Eslint](http://eslint.org)
+  * [x] [React](https://facebook.github.io/react)
+  * [x] [Redux](http://redux.js.org)
+  * [x] [Immutable](https://facebook.github.io/immutable-js)
+  * [x] [Reselect](https://github.com/reactjs/reselect)
+  * [x] [Redux-Saga](https://github.com/redux-saga/redux-saga)
+  * [ ] [Styled components](https://styled-components.com) (coming soon)
+  * [x] [Prettier](https://github.com/prettier/prettier) (uses as editor plugin)
+  * [x] [Eslint](http://eslint.org)
 
 The first iteration will be test-free. :smile:
 
 In a second iteration I will add:
-  * [Jest](https://facebook.github.io/jest) unit (and integration?) testing
-  * [Cypress](https://www.cypress.io) end-to-end testing
+  * [ ] [Jest](https://facebook.github.io/jest) unit (and integration?) testing
+  * [ ] [Cypress](https://www.cypress.io) end-to-end testing
 
 In a third iteration I might add
-  * [Flow](https://flow.org)
+  * [ ] [Flow](https://flow.org)
 
 I might also experiment in using [redux-observable](https://redux-observable.js.org) instead of redux-saga.
 
@@ -47,8 +47,15 @@ For more information on how to this works with other frontends/backends, head ov
 
 # How it works
 
-> Describe the general architecture of your app here
+This implementation uses a modular segmentation of application logic, so each
+feature is added as module, containing components, actions, reducers, sagas,
+selectors etc that concerns around that feature. Each module defines explicitly
+what is exported, which hides implementation details and gives exposure to what
+will affect things outside the module on change.
 
 # Getting started
 
-> npm install, npm start, etc.
+```
+❯ npm install
+❯ npm start
+```
