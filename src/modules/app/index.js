@@ -1,5 +1,5 @@
-import App from './components/app'
+import Root from './containers/root'
 
-export const components = {
-  App,
+export const containers = {
+  Root,
 }
