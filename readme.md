@@ -18,7 +18,7 @@ It uses the following library stack:
   * [x] [Immutable](https://facebook.github.io/immutable-js)
   * [x] [Reselect](https://github.com/reactjs/reselect)
   * [x] [Redux-Saga](https://github.com/redux-saga/redux-saga)
-  * [ ] [Styled components](https://styled-components.com) (coming soon)
+  * [ ] ~~[Styled components](https://styled-components.com)~~ (not for now, migration too complex)
   * [x] [Prettier](https://github.com/prettier/prettier) (uses as editor plugin)
   * [x] [Eslint](http://eslint.org)
 
