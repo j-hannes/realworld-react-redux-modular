@@ -5,6 +5,8 @@ module.exports = {
   env: {
     browser: true,
   },
+  parser: 'babel-eslint',
+  plugins: ['flowtype'],
   settings: {
     'import/resolver': {
       node: {

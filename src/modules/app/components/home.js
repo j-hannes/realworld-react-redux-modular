@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 
 import * as articles from 'modules/articles'
