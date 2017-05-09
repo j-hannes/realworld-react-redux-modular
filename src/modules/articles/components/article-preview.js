@@ -28,7 +28,7 @@ const ArticlePreview = ({ article }) => (
 )
 
 ArticlePreview.propTypes = {
-  article: types.Article.isRequired,
+  article: types.article.isRequired,
 }
 
 export default ArticlePreview

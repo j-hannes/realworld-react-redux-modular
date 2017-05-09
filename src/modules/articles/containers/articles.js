@@ -15,7 +15,7 @@ const Articles = props => (
 )
 
 Articles.propTypes = {
-  articles: types.Articles.isRequired,
+  articles: types.articles.isRequired,
 }
 
 const mapStateToProps = createStructuredSelector({
