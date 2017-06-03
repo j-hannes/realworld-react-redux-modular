@@ -5,7 +5,7 @@ const signup = state => state.get(moduleName)
 
 export const getFormData = createSelector(signup, state => state.form)
 
-export const getErrors = createSelector(signup, state =>
+export const getFormErrors = createSelector(signup, state =>
   state.errors
     .entrySeq()
     .toArray()

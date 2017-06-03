@@ -1,45 +1,51 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
-import { func } from 'prop-types'
+import { bool, func } from 'prop-types'
 
 import * as types from '../types'
-import { getFormData, getErrors } from '../selectors'
+import { getFormData, getFormErrors } from '../selectors'
 
-const Signup = props => (
+const AuthForm = props => (
   <div className="auth-page">
     <div className="container page">
       <div className="row">
 
         <div className="col-md-6 offset-md-3 col-xs-12">
-          <h1 className="text-xs-center">Sign up</h1>
+          <h1 className="text-xs-center">
+            {props.login ? 'Log in' : 'Sign up'}
+          </h1>
           <p className="text-xs-center">
-            <a href="">Have an account?</a>
+            <Link to={props.login ? '/register' : '/login'}>
+              {props.login ? 'Need' : 'Have'} an account?
+            </Link>
           </p>
 
           <ul className="error-messages">
-            {props.errors.map(({ field, error }) => (
+            {props.formErrors.map(({ field, error }) => (
               <li key={field}>{field} {error}</li>
             ))}
           </ul>
 
-          <form onSubmit={props.requestSignup}>
-            <fieldset className="form-group">
-              <input
-                className="form-control form-control-lg"
-                type="text"
-                placeholder="Your Name"
-                value={props.form.username}
-                onChange={props.changeFormField}
-                name="username"
-              />
-            </fieldset>
+          <form onSubmit={props.authenticateUser}>
+            {!props.login &&
+              <fieldset className="form-group">
+                <input
+                  className="form-control form-control-lg"
+                  type="text"
+                  placeholder="Your Name"
+                  value={props.formData.username}
+                  onChange={props.changeFormField}
+                  name="username"
+                />
+              </fieldset>}
             <fieldset className="form-group">
               <input
                 className="form-control form-control-lg"
                 type="text"
                 placeholder="Email"
-                value={props.form.email}
+                value={props.formData.email}
                 onChange={props.changeFormField}
                 name="email"
               />
@@ -49,13 +55,13 @@ const Signup = props => (
                 className="form-control form-control-lg"
                 type="password"
                 placeholder="Password"
-                value={props.form.password}
+                value={props.formData.password}
                 onChange={props.changeFormField}
                 name="password"
               />
             </fieldset>
             <button className="btn btn-lg btn-primary pull-xs-right">
-              Sign up
+              Sign in
             </button>
           </form>
         </div>
@@ -65,19 +71,24 @@ const Signup = props => (
   </div>
 )
 
-Signup.propTypes = {
-  form: types.signupForm.isRequired,
-  errors: types.signupErrors.isRequired,
+AuthForm.propTypes = {
+  formData: types.formData.isRequired,
+  formErrors: types.formErrors.isRequired,
   changeFormField: func.isRequired,
-  requestSignup: func.isRequired,
+  authenticateUser: func.isRequired,
+  login: bool,
+}
+
+AuthForm.defaultProps = {
+  login: false,
 }
 
 export default connect(
   createStructuredSelector({
-    form: getFormData,
-    errors: getErrors,
+    formData: getFormData,
+    formErrors: getFormErrors,
   }),
-  dispatch => ({
+  (dispatch, props) => ({
     changeFormField(e) {
       dispatch({
         type: 'UPDATE_FORM_FIELD',
@@ -85,9 +96,13 @@ export default connect(
         value: e.target.value,
       })
     },
-    requestSignup(e) {
+    authenticateUser(e) {
       e.preventDefault()
-      dispatch({ type: 'SIGNUP_REQUEST' })
+      if (props.login) {
+        dispatch({ type: 'LOGIN_REQUEST' })
+      } else {
+        dispatch({ type: 'SIGNUP_REQUEST' })
+      }
     },
   }),
-)(Signup)
+)(AuthForm)

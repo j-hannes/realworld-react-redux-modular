@@ -1,4 +1,5 @@
-import Signup from './components/signup'
+import React from 'react'
+import AuthForm from './components/auth-form'
 
 import mainSaga from './sagas'
 
@@ -11,5 +12,6 @@ export const sagas = {
 }
 
 export const components = {
-  Signup,
+  SignupForm: AuthForm,
+  LoginForm: () => <AuthForm login />,
 }

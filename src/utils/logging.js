@@ -5,5 +5,3 @@ export const log = value => {
   }
   return value
 }
-
-window.log = log

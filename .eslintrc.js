@@ -17,7 +17,7 @@ module.exports = {
     'generator-star-spacing': 'off',
     'import/prefer-default-export': 'off',
     'max-len': ['warn', 80],
-    'no-constant-condition': ['error', { 'checkLoops': false }],
+    'no-constant-condition': ['error', { checkLoops: false }],
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'off',
     'react/jsx-filename-extension': 'off',

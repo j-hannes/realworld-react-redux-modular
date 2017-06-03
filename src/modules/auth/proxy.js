@@ -13,7 +13,7 @@ export function deleteToken() {
   localStorage.removeItem('authToken')
 }
 
-export function getToken() {
+export function getStoredToken() {
   try {
     return JSON.parse(localStorage.getItem('authToken'))
   } catch (e) {

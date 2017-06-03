@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux-immutable'
 
 import * as articles from 'modules/articles'
-import * as signup from 'modules/signup'
+import * as auth from 'modules/auth'
 
 export default combineReducers({
   [articles.moduleName]: articles.reducer,
-  [signup.moduleName]: signup.reducer,
+  [auth.moduleName]: auth.reducer,
 })
